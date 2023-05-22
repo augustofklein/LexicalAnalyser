@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Analyser
@@ -22,7 +24,26 @@ namespace Analyser
 
             if (dr == System.Windows.Forms.DialogResult.OK)
             {
+                StreamReader sr = null;
 
+                try
+                {
+                    sr = File.OpenText(openFileDialog.FileName);
+
+                    while (!sr.EndOfStream)
+                    {
+                        string line = sr.ReadLine();
+                    }
+                }
+                catch (IOException exception)
+                {
+                    Console.WriteLine("An error acurred");
+                    Console.WriteLine(exception.Message);
+                }
+                finally
+                {
+                    if (sr != null) sr.Close();
+                }
             }
         }
 
