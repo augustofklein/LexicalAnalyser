@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LexicalAnaliser));
             this.btnSelecionarArquivo = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.linha = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -105,6 +106,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnSelecionarArquivo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LexicalAnaliser";
             this.Text = "Analisador Lêxido C";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
