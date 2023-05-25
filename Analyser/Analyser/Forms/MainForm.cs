@@ -42,8 +42,6 @@ namespace Analyser
             tokens.Add(new Token("tkint", "int"));
             tokens.Add(new Token("tkfloat", "float"));
             tokens.Add(new Token("tkstring", "string"));
-            tokens.Add(new Token("tkabreparenteses", "("));
-            tokens.Add(new Token("tkfechaparenteses", ")"));
 
             if (dr == System.Windows.Forms.DialogResult.OK)
             {
@@ -68,15 +66,16 @@ namespace Analyser
                             MatchCollection matches = Regex.Matches(line, mypattern);
 
                             // Adição do token em tela
-                            // NECESSÁRIO BUSCAR A POSIÇÃO DA COLUNA
                             if (matches.Count > 0)
                             {
-                                for (int i = 0;i< matches.Count; i++)
+                                foreach (Match match in matches)
                                 {
-                                    tokensScreen.Add(new TokenScreen(countLine, 0, token.Name, token.Data));
+                                    tokensScreen.Add(new TokenScreen(countLine, match.Index + 1, token.Name, token.Data));
+                                    
                                 }
                             }
                         }
+                        dataGridView1.DataSource = tokensScreen;
                     }
                 }
                 catch (IOException exception)

@@ -31,10 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LexicalAnaliser));
             this.btnSelecionarArquivo = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.linha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coluna = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.token = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lexema = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -42,9 +38,10 @@
             // 
             // btnSelecionarArquivo
             // 
-            this.btnSelecionarArquivo.Location = new System.Drawing.Point(360, 12);
+            this.btnSelecionarArquivo.Location = new System.Drawing.Point(447, 14);
+            this.btnSelecionarArquivo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSelecionarArquivo.Name = "btnSelecionarArquivo";
-            this.btnSelecionarArquivo.Size = new System.Drawing.Size(137, 20);
+            this.btnSelecionarArquivo.Size = new System.Drawing.Size(183, 25);
             this.btnSelecionarArquivo.TabIndex = 10;
             this.btnSelecionarArquivo.Text = "Selecionar Arquivo";
             this.btnSelecionarArquivo.UseVisualStyleBackColor = true;
@@ -53,35 +50,12 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.linha,
-            this.coluna,
-            this.token,
-            this.lexema});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 38);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 47);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(485, 384);
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(614, 473);
             this.dataGridView1.TabIndex = 11;
-            // 
-            // linha
-            // 
-            this.linha.HeaderText = "Linha";
-            this.linha.Name = "linha";
-            // 
-            // coluna
-            // 
-            this.coluna.HeaderText = "Coluna";
-            this.coluna.Name = "coluna";
-            // 
-            // token
-            // 
-            this.token.HeaderText = "Token";
-            this.token.Name = "token";
-            // 
-            // lexema
-            // 
-            this.lexema.HeaderText = "Lexema";
-            this.lexema.Name = "lexema";
             // 
             // openFileDialog
             // 
@@ -93,20 +67,22 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
+            this.textBox1.Location = new System.Drawing.Point(16, 15);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(342, 20);
+            this.textBox1.Size = new System.Drawing.Size(423, 22);
             this.textBox1.TabIndex = 12;
             // 
             // LexicalAnaliser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(503, 424);
+            this.ClientSize = new System.Drawing.Size(701, 522);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnSelecionarArquivo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "LexicalAnaliser";
             this.Text = "Analisador Lêxido C";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -118,10 +94,6 @@
         #endregion
         private System.Windows.Forms.Button btnSelecionarArquivo;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn linha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn coluna;
-        private System.Windows.Forms.DataGridViewTextBoxColumn token;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lexema;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.TextBox textBox1;
     }
