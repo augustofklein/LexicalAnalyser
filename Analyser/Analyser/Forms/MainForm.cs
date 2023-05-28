@@ -10,22 +10,10 @@ namespace Analyser
 {
     public partial class LexicalAnaliser : Form
     {
-        public const string tkmain = "main";
-        public const string tkint = "int";
-        public const string tkvoid = "void";
-        public const string tkfloat = "float";
-        public const string tkstring = "string";
-        public const string tkabreparenteses = "(";
-        public const string tkfechaparenteses = ")";
 
         public LexicalAnaliser()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -34,14 +22,14 @@ namespace Analyser
             List<Token> tokens = new List<Token>();
             List<TokenScreen> tokensScreen = new List<TokenScreen>();
 
-            DataGridTableStyle teste = new DataGridTableStyle();
-
-            teste.MappingName = "teste";
-
-            tokens.Add(new Token("tkmain", "main"));
             tokens.Add(new Token("tkint", "int"));
             tokens.Add(new Token("tkfloat", "float"));
-            tokens.Add(new Token("tkstring", "string"));
+            tokens.Add(new Token("tkchar", "char"));
+            tokens.Add(new Token("tkdouble", "double"));
+            tokens.Add(new Token("tkstruct", "struct"));
+            tokens.Add(new Token("tkmain", "main"));
+            tokens.Add(new Token("tkwhile", "while"));
+            tokens.Add(new Token("tkfor", "for"));
 
             if (dr == System.Windows.Forms.DialogResult.OK)
             {
@@ -52,9 +40,9 @@ namespace Analyser
                     sr = File.OpenText(openFileDialog.FileName);
 
                     int countLine = 0;
-                    while (!sr.EndOfStream)
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
                     {
-                        string line = sr.ReadLine();
                         countLine++;
 
                         foreach (Token token in tokens)
@@ -75,8 +63,8 @@ namespace Analyser
                                 }
                             }
                         }
-                        dataGridView1.DataSource = tokensScreen;
                     }
+                    dataGridView1.DataSource = tokensScreen;
                 }
                 catch (IOException exception)
                 {
@@ -90,19 +78,10 @@ namespace Analyser
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
-        {
-
-        }
-
         private void openFileDialog_FileOk(object sender, CancelEventArgs e)
         {
             
         }
+
     }
 }
