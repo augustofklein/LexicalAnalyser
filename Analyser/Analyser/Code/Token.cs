@@ -8,8 +8,8 @@ namespace Analyser.Code
 {
     public class Token
     {
-        public string Name { get; set; }
-        public string Data { get; set; }
+        public string Name { get; private set; }
+        public string Data { get; private set; }
 
         public Token(string name, string data)
         {
