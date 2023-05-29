@@ -31,8 +31,10 @@ namespace Analyser
             tokens.Add(new Token("tkchar", "char"));
             tokens.Add(new Token("tkdouble", "double"));
             tokens.Add(new Token("tkstruct", "struct"));
+            tokens.Add(new Token("tkident", "ident"));
 
             // Declarações iterativas
+            tokens.Add(new Token("tkdo", "do"));
             tokens.Add(new Token("tkwhile", "while"));
             tokens.Add(new Token("tkfor", "for"));
             tokens.Add(new Token("tkif", "if"));
@@ -40,13 +42,19 @@ namespace Analyser
 
             // Parenteses
             tokens.Add(new Token("tkabreparenteses", "("));
-            tokens.Add(new Token("tkafechaparenteses", ")"));
+            tokens.Add(new Token("tkfechaparenteses", ")"));
 
             // Chaves
-            tokens.Add(new Token("tkaabrechaves", "{"));
-            tokens.Add(new Token("tkafechachaves", "}"));
+            tokens.Add(new Token("tkabrechaves", "{"));
+            tokens.Add(new Token("tkfechachaves", "}"));
+
+            // Colchetes
+            tokens.Add(new Token("tkabrecolchetes", "["));
+            tokens.Add(new Token("tkfechacolchetes", "]"));
 
             // Operadores compartativos
+            tokens.Add(new Token("tkmaior", ">"));
+            tokens.Add(new Token("tkmenor", "<"));
             tokens.Add(new Token("tkigual", "=="));
             tokens.Add(new Token("tkdiferente", "<>"));
             tokens.Add(new Token("tkdiferente", "!="));
@@ -62,19 +70,21 @@ namespace Analyser
 
             // Operadores bitwise
             tokens.Add(new Token("tkbitwiseand", "&"));
-            //tokens.Add(new Token("tkbitwiseor", "|"));
-            //tokens.Add(new Token("tkbitwisexor", "^"));
+            tokens.Add(new Token("tkbitwiseor", "|"));
+            tokens.Add(new Token("tkbitwisexor", "^"));
             tokens.Add(new Token("tkbitwisenot", "~"));
+            tokens.Add(new Token("tkbitwiseleftshift", "<<"));
+            tokens.Add(new Token("tkbitwiserightshift", ">>"));
 
             // Ponteiro
             tokens.Add(new Token("tkponteiro", "*"));
+            tokens.Add(new Token("tkacessoflecha", "->"));
 
             // Negação
             tokens.Add(new Token("tknegacao", "!"));
 
             // Laços
-            tokens.Add(new Token("tkdo", "do"));
-            tokens.Add(new Token("tkwhile", "while"));
+            tokens.Add(new Token("tkswitch", "switch"));
             tokens.Add(new Token("tkcase", "case"));
             tokens.Add(new Token("tkdefault", "default"));
 
