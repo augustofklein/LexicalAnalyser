@@ -108,13 +108,13 @@ namespace Analyser
                             MatchCollection matches;
 
                             // Expressão em Regex para encontrar a sentença
-                            if (token.Data.Length == 1)
+                            if (Regex.IsMatch(token.Data, "^[a-zA-Z]*$"))
                             {
-                                mypattern = string.Format(@"[{0}]", token.Data);
+                                mypattern = string.Format(@"\b{0}\b", token.Data);
                             }
                             else
                             {
-                                mypattern = string.Format(@"{0}", token.Data);
+                                mypattern = string.Format(@"\{0}", token.Data);
                             }
 
                             matches = Regex.Matches(line, mypattern);
