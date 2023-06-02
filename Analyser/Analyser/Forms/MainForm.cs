@@ -23,7 +23,9 @@ namespace Analyser
             List<Token> tokens = new List<Token>();
             List<TokenScreen> tokensScreen = new List<TokenScreen>();
 
+            //Chamada de função
             tokens.Add(new Token("tkmain", "main"));
+            tokens.Add(new Token("tkfuncao", "function"));
 
             // Declrações de variáveis
             tokens.Add(new Token("tkint", "int"));
@@ -32,6 +34,7 @@ namespace Analyser
             tokens.Add(new Token("tkdouble", "double"));
             tokens.Add(new Token("tkstruct", "struct"));
             tokens.Add(new Token("tkident", "ident"));
+            tokens.Add(new Token("tkiconst", "const"));
 
             // Declarações iterativas
             tokens.Add(new Token("tkdo", "do"));
@@ -52,7 +55,7 @@ namespace Analyser
             tokens.Add(new Token("tkabrecolchetes", "["));
             tokens.Add(new Token("tkfechacolchetes", "]"));
 
-            // Operadores compartativos
+            // Operadores comparativos
             tokens.Add(new Token("tkmaior", ">"));
             tokens.Add(new Token("tkmenor", "<"));
             tokens.Add(new Token("tkigual", "=="));
@@ -75,6 +78,10 @@ namespace Analyser
             tokens.Add(new Token("tkbitwisenot", "~"));
             tokens.Add(new Token("tkbitwiseleftshift", "<<"));
             tokens.Add(new Token("tkbitwiserightshift", ">>"));
+
+            //Operadores lógicos
+            tokens.Add(new Token("tkand", "&&"));
+            tokens.Add(new Token("tkor", "||"));
 
             // Ponteiro
             tokens.Add(new Token("tkponteiro", "*"));
@@ -107,7 +114,7 @@ namespace Analyser
                             string mypattern;
                             MatchCollection matches;
 
-                            // Expressão em Regex para encontrar a sentença
+                            //Validar palavras
                             if (Regex.IsMatch(token.Data, "^[a-zA-Z]*$"))
                             {
                                 mypattern = string.Format(@"\b{0}\b", token.Data);
@@ -116,6 +123,35 @@ namespace Analyser
                             {
                                 mypattern = string.Format(@"\{0}", token.Data);
                             }
+
+                            //Validar AND
+                            if (Regex.IsMatch(token.Data, @"\&\&"))
+                            {
+                                mypattern = string.Format(@"\&\&", token.Data);
+                            }
+
+                            //Validar ponteiro
+                            if (Regex.IsMatch(token.Data, @"\*\("))
+                            {
+                                mypattern = string.Format(@"\*\(", token.Data);
+                            }
+
+                            //Validar o OR
+                            if (Regex.IsMatch(token.Data, @"\|\|"))
+                            {
+                                mypattern = string.Format(@"\|\|", token.Data);
+                            }
+
+                            if (Regex.IsMatch(token.Data, @"\&\&"))
+                            {
+                                mypattern = string.Format(@"\&\&", token.Data);
+                            }
+
+                            //Validar funções
+                            /*if (Regex.IsMatch(line, @"^[a-zA-Z0-9_]*\([a-zA-Z0-9_]*\)$"))
+                            {
+                                mypattern = string.Format(@"^[a-zA-Z0-9_]*\([a-zA-Z0-9_]*\)$", token.Data);
+                            }*/
 
                             matches = Regex.Matches(line, mypattern);
 
